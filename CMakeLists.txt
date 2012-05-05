@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 
 project(Versionning CXX)
 
+include(version.cmake)
+message(STATUS "Versionning v${${PROJECT_NAME}_VERSION}")
+
 set(${PROJECT_NAME}_INCLUDE_DIR
     ${${PROJECT_NAME}_SOURCE_DIR}/include
     CACHE INTERNAL ""
@@ -26,6 +29,7 @@ find_package(Doxygen)
 if(DOXYGEN_FOUND)
     option(${PROJECT_NAME}_BUILD_DOC "Generate API documentation with Doxygen" OFF)
     if(${PROJECT_NAME}_BUILD_DOC)
+        file(COPY ${PROJECT_SOURCE_DIR}/LICENSE_1_0.txt DESTINATION ${PROJECT_BINARY_DIR})
         configure_file(${PROJECT_SOURCE_DIR}/Doxyfile.in.cmake ${PROJECT_BINARY_DIR}/Doxyfile @ONLY)
         add_custom_target(
             ${PROJECT_NAME}_doc
