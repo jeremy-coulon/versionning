@@ -4,64 +4,93 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
+/** @file */
+
 #pragma once
 
+//===================
+//==  Versionning  ==
+//===================
 #include "Versionning/VersionException.h"
 
+//=============
+//==  Boost  ==
+//=============
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/trim.hpp>
 #include <boost/lexical_cast.hpp>
 
+//===========
+//==  STD  ==
+//===========
 #include <string>
 #include <vector>
 
+/// Namespace of the Versionning library
 namespace Versionning
 {
+    /// Data structure to store a version number
     class Version
     {
     public:
-        /// Constructors
-        //@{
+        /// Default constructor
+        /**
+          * Version is initialized to v0.0.0.0
+          */
         Version()
             : major_(0), minor_(0), patch_(0), tweak_(0)
         {
 
         }
 
+        /// Constructor taking 4 numbers as parameters
+        /**
+          * @param major    1st version number
+          * @param minor    2nd version number
+          * @param patch    3rd version number
+          * @param tweak    4th version number
+          */
         Version(unsigned int major, unsigned int minor, unsigned int patch, unsigned int tweak)
             : major_(major), minor_(minor), patch_(patch), tweak_(tweak)
         {
 
         }
 
+        /// Constructor from a string
+        /**
+          * @param version a string representing a version number. This string must be well formed.
+          * @see setVersion()
+          */
         Version(const std::string& version)
         {
             setVersion(version);
         }
-        //@}
 
-        /// Getters
-        //@{
+        /// Get 1st version number
         unsigned int getMajor() const
         {
             return major_;
         }
 
+        /// Get 2nd version number
         unsigned int getMinor() const
         {
             return minor_;
         }
 
+        /// Get 3rd version number
         unsigned int getPatch() const
         {
             return patch_;
         }
 
+        /// Get 4th version number
         unsigned int getTweak() const
         {
             return tweak_;
         }
 
+        /// Get complete version number as a string
         std::string getVersion() const
         {
             static const std::string separator(".");
@@ -75,30 +104,39 @@ namespace Versionning
             result += boost::lexical_cast<std::string>(tweak_);
             return result;
         }
-        //@}
 
-        /// Setters
-        //@{
+        /// Set 1st version number
         void setMajor(unsigned int major)
         {
             major_ = major;
         }
 
+        /// Set 2nd version number
         void setMinor(unsigned int minor)
         {
             minor_ = minor;
         }
 
+        /// Set 3rd version number
         void setPatch(unsigned int patch)
         {
             patch_ = patch;
         }
 
+        /// Set 4th version number
         void setTweak(unsigned int tweak)
         {
             tweak_ = tweak;
         }
 
+        /// Set complete version number from a string
+        /**
+          * The given string must be well formed.
+          * It must be composed of 1 to 4 unsigned numbers separated by a dot '.' or comma ','.
+          * If the string is bad formed, an exception is thrown.
+          * @param version a string containing the version number
+          * @throw VersionException
+          */
         void setVersion(const std::string& version)
         {
             std::vector<std::string> splitResult;
@@ -134,9 +172,7 @@ namespace Versionning
             else
                 tweak_ = 0;
         }
-        //@}
 
-    protected:
     private:
         unsigned int major_;
         unsigned int minor_;
@@ -144,8 +180,12 @@ namespace Versionning
         unsigned int tweak_;
     };
 
-    /// Version comparison operators
-    //@{
+    /// Equals operator of 2 version numbers
+    /**
+      * @param v1   First version number
+      * @param v2   Second version number
+      * @return True if the 2 versions are equals. False otherwise.
+      */
     bool operator== (const Version& v1, const Version& v2)
     {
         return v1.getMajor() == v2.getMajor()
@@ -154,11 +194,23 @@ namespace Versionning
                 && v1.getTweak() == v2.getTweak();
     }
 
+    /// Not-Equals operator of 2 version numbers
+    /**
+      * @param v1   First version number
+      * @param v2   Second version number
+      * @return True if the 2 versions are different. False otherwise.
+      */
     bool operator!= (const Version& v1, const Version& v2)
     {
         return !(v1 == v2);
     }
 
+    /// Lesser-than operator of 2 version numbers
+    /**
+      * @param v1   First version number
+      * @param v2   Second version number
+      * @return True if the first version number is lesser than the second version number. False otherwise.
+      */
     bool operator< (const Version& v1, const Version& v2)
     {
         if(v1.getMajor() < v2.getMajor())
@@ -188,6 +240,12 @@ namespace Versionning
         }
     }
 
+    /// Greater-than operator of 2 version numbers
+    /**
+      * @param v1   First version number
+      * @param v2   Second version number
+      * @return True if the first version number is greater than the second version number. False otherwise.
+      */
     bool operator> (const Version& v1, const Version& v2)
     {
         if(v1.getMajor() > v2.getMajor())
@@ -217,14 +275,26 @@ namespace Versionning
         }
     }
 
+    /// Lesser-or-equal operator of 2 version numbers
+    /**
+      * @param v1   First version number
+      * @param v2   Second version number
+      * @return True if the first version number is lesser or equal to the second version number. False otherwise.
+      */
     bool operator<= (const Version& v1, const Version& v2)
     {
         return !(v1 > v2);
     }
 
+    /// Greater-or-equal operator of 2 version numbers
+    /**
+      * @param v1   First version number
+      * @param v2   Second version number
+      * @return True if the first version number is greater or equal to the second version number. False otherwise.
+      */
     bool operator>= (const Version& v1, const Version& v2)
     {
         return !(v1 < v2);
     }
-    //@}
+
 }
