@@ -3,10 +3,10 @@ cmake_minimum_required(VERSION 2.8)
 project(Versionning CXX)
 
 include(version.cmake)
-message(STATUS "Versionning v${${PROJECT_NAME}_VERSION}")
+message(STATUS "${PROJECT_NAME} v${${PROJECT_NAME}_VERSION}")
 
 set(${PROJECT_NAME}_INCLUDE_DIR
-    ${${PROJECT_NAME}_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include
     CACHE INTERNAL ""
 )
 
