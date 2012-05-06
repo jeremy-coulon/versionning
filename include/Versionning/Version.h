@@ -60,7 +60,7 @@
 #include <vector>
 
 /// Namespace of the Versionning library
-namespace Versionning
+namespace Vers
 {
     /// Data structure to store a version number
     class Version

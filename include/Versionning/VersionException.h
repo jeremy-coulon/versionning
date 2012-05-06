@@ -20,7 +20,7 @@
 #include <string>
 
 /// Namespace of the Versionning library
-namespace Versionning
+namespace Vers
 {
     /// Exception type that can be thrown when using the Versionning library
     /**
