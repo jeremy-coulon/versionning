@@ -2,19 +2,6 @@ cmake_minimum_required(VERSION 2.8)
 
 project(Versionning CXX)
 
-######################
-#  Global variables  #
-######################
-
-# Set project version
-include(version.cmake)
-message(STATUS "${PROJECT_NAME} v${${PROJECT_NAME}_VERSION}")
-
-# Set install path (relative path only)
-set(INSTALL_INCLUDE_DIR include)
-set(INSTALL_CMAKE_DIR share/${PROJECT_NAME}/cmake)
-set(INSTALL_DOC_DIR share/doc/${PROJECT_NAME})
-
 #############
 #  Sources  #
 #############
@@ -22,6 +9,8 @@ set(INSTALL_DOC_DIR share/doc/${PROJECT_NAME})
 set(PROJECT_INCLUDE_DIR
     ${PROJECT_SOURCE_DIR}/include
 )
+
+set(${PROJECT_NAME}_INCLUDE_DIR ${PROJECT_INCLUDE_DIR} CACHE INTERNAL "")
 
 set(PROJECT_FILES
     ${PROJECT_INCLUDE_DIR}/${PROJECT_NAME}/Version.h
@@ -33,6 +22,27 @@ add_custom_target(
     COMMAND ""
     SOURCES ${PROJECT_FILES}
 )
+
+######################
+#  Global variables  #
+######################
+
+set(IS_TOPLEVEL_PROJECT FALSE)
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+    set(IS_TOPLEVEL_PROJECT TRUE)
+endif()
+
+# Set project version
+include(version.cmake)
+message(STATUS "${PROJECT_NAME} version: ${${PROJECT_NAME}_VERSION}")
+
+# Following code is enabled only if Versionning is the top level project
+if(IS_TOPLEVEL_PROJECT)
+
+# Set install path (relative path only)
+set(INSTALL_INCLUDE_DIR include)
+set(INSTALL_CMAKE_DIR share/${PROJECT_NAME}/cmake)
+set(INSTALL_DOC_DIR share/doc/${PROJECT_NAME})
 
 ####################
 #  Subdirectories  # 
@@ -68,3 +78,5 @@ set(CPACK_PACKAGE_VERSION_PATCH ${${PROJECT_NAME}_PATCH})
 set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME}_v${${PROJECT_NAME}_VERSION}")
 
 include(CPack)
+
+endif(IS_TOPLEVEL_PROJECT)
