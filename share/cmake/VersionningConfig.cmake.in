@@ -1,7 +1,11 @@
 # - Config file for the Versionning package
 # It defines the following variables
-#  VERSIONNING_INCLUDE_DIRS - include directories for Versionning
+#  Versionning_INCLUDE_DIR - include directory for Versionning
 
 # Compute paths
 get_filename_component(VERSIONNING_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
-set(VERSIONNING_INCLUDE_DIRS "${VERSIONNING_CMAKE_DIR}/@CONF_REL_INCLUDE_DIR@")
+
+set(Versionning_INCLUDE_DIR 
+    "${VERSIONNING_CMAKE_DIR}/@CONF_REL_INCLUDE_DIR@"
+    CACHE PATH "Include directory for Versionning"
+)
