@@ -40,7 +40,7 @@ namespace Versionning
         }
 
         /// Destructor
-        virtual ~VersionException()
+        virtual ~VersionException() throw()
         {
 
         }
