@@ -213,13 +213,13 @@ namespace Vers
         unsigned int tweak_;
     };
 
-    /// Equals operator of 2 version numbers
+    /// Equal operator of 2 version numbers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the 2 versions are equals. False otherwise.
+      * @return True if the 2 versions are equal. False otherwise.
       */
-    bool operator== (const Version& v1, const Version& v2)
+    inline bool operator== (const Version& v1, const Version& v2)
     {
         return v1.getMajor() == v2.getMajor()
                 && v1.getMinor() == v2.getMinor()
@@ -227,24 +227,24 @@ namespace Vers
                 && v1.getTweak() == v2.getTweak();
     }
 
-    /// Not-Equals operator of 2 version numbers
+    /// Not-Equal operator of 2 version numbers
     /**
       * @param v1   First version number
       * @param v2   Second version number
       * @return True if the 2 versions are different. False otherwise.
       */
-    bool operator!= (const Version& v1, const Version& v2)
+    inline bool operator!= (const Version& v1, const Version& v2)
     {
         return !(v1 == v2);
     }
 
-    /// Lesser-than operator of 2 version numbers
+    /// Less-than operator of 2 version numbers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the first version number is lesser than the second version number. False otherwise.
+      * @return True if the first version number is less than the second version number. False otherwise.
       */
-    bool operator< (const Version& v1, const Version& v2)
+    inline bool operator< (const Version& v1, const Version& v2)
     {
         if(v1.getMajor() < v2.getMajor())
             return true;
@@ -279,7 +279,7 @@ namespace Vers
       * @param v2   Second version number
       * @return True if the first version number is greater than the second version number. False otherwise.
       */
-    bool operator> (const Version& v1, const Version& v2)
+    inline bool operator> (const Version& v1, const Version& v2)
     {
         if(v1.getMajor() > v2.getMajor())
             return true;
@@ -308,13 +308,13 @@ namespace Vers
         }
     }
 
-    /// Lesser-or-equal operator of 2 version numbers
+    /// Less-or-equal operator of 2 version numbers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the first version number is lesser or equal to the second version number. False otherwise.
+      * @return True if the first version number is less than or equal to the second version number. False otherwise.
       */
-    bool operator<= (const Version& v1, const Version& v2)
+    inline bool operator<= (const Version& v1, const Version& v2)
     {
         return !(v1 > v2);
     }
@@ -323,11 +323,12 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the first version number is greater or equal to the second version number. False otherwise.
+      * @return True if the first version number is greater than or equal to the second version number. False otherwise.
       */
-    bool operator>= (const Version& v1, const Version& v2)
+    inline bool operator>= (const Version& v1, const Version& v2)
     {
         return !(v1 < v2);
     }
 
 }
+
