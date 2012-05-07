@@ -9,3 +9,8 @@ set(Versionning_INCLUDE_DIR
     "${VERSIONNING_CMAKE_DIR}/@CONF_REL_INCLUDE_DIR@"
     CACHE PATH "Include directory for Versionning"
 )
+
+mark_as_advanced(
+    Versionning_DIR
+    Versionning_INCLUDE_DIR
+)
