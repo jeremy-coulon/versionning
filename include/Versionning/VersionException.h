@@ -33,6 +33,9 @@ namespace Vers
     {
     };
 
+    /// VersionException additional information: input version string
     typedef boost::error_info<struct tag_input_version, std::string> input_version;
+
+    /// VersionException additional information: nested exception
     typedef boost::error_info<struct tag_nested_exception, boost::exception_ptr> nested_exception;
 }

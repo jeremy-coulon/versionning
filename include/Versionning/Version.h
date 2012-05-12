@@ -61,6 +61,7 @@
 //===========
 #include <string>
 #include <vector>
+#include <iostream>
 
 /// Namespace of the Versionning library
 namespace Vers
@@ -95,6 +96,7 @@ namespace Vers
         /// Constructor from a string
         /**
           * @param version a string representing a version number. This string must be well formed.
+          * @throw VersionException
           * @see setVersion()
           */
         Version(const std::string& version)
@@ -129,14 +131,14 @@ namespace Vers
         /// Get complete version number as a string
         std::string toString() const
         {
-            const std::string separator(".");
+            const std::string stringSeparator(".");
             std::string result;
             result += boost::lexical_cast<std::string>(major_);
-            result += separator;
+            result += stringSeparator;
             result += boost::lexical_cast<std::string>(minor_);
-            result += separator;
+            result += stringSeparator;
             result += boost::lexical_cast<std::string>(patch_);
-            result += separator;
+            result += stringSeparator;
             result += boost::lexical_cast<std::string>(tweak_);
             return result;
         }
@@ -239,6 +241,16 @@ namespace Vers
         unsigned short minor_;
         unsigned short patch_;
         unsigned short tweak_;
+
+        // Frienship
+        friend bool operator==(const Version& v1, const Version& v2);
+        friend bool operator!=(const Version& v1, const Version& v2);
+        friend bool operator< (const Version& v1, const Version& v2);
+        friend bool operator> (const Version& v1, const Version& v2);
+        friend bool operator<=(const Version& v1, const Version& v2);
+        friend bool operator>=(const Version& v1, const Version& v2);
+        friend std::ostream& operator<<(std::ostream& os, const Version& v);
+        friend std::istream& operator>>(std::istream& is, Version& v);
     };
 
     /// Equal operator of 2 version numbers
@@ -249,10 +261,10 @@ namespace Vers
       */
     inline bool operator== (const Version& v1, const Version& v2)
     {
-        return v1.getMajor() == v2.getMajor()
-                && v1.getMinor() == v2.getMinor()
-                && v1.getPatch() == v2.getPatch()
-                && v1.getTweak() == v2.getTweak();
+        return v1.major_ == v2.major_
+                && v1.minor_ == v2.minor_
+                && v1.patch_ == v2.patch_
+                && v1.tweak_ == v2.tweak_;
     }
 
     /// Not-Equal operator of 2 version numbers
@@ -274,25 +286,25 @@ namespace Vers
       */
     inline bool operator< (const Version& v1, const Version& v2)
     {
-        if(v1.getMajor() < v2.getMajor())
+        if(v1.major_ < v2.major_)
             return true;
-        else if(v1.getMajor() > v2.getMajor())
+        else if(v1.major_ > v2.major_)
             return false;
         else
         {
-            if(v1.getMinor() < v2.getMinor())
+            if(v1.minor_ < v2.minor_)
                 return true;
-            else if(v1.getMinor() > v2.getMinor())
+            else if(v1.minor_ > v2.minor_)
                 return false;
             else
             {
-                if(v1.getPatch() < v2.getPatch())
+                if(v1.patch_ < v2.patch_)
                     return true;
-                else if(v1.getPatch() > v2.getPatch())
+                else if(v1.patch_ > v2.patch_)
                     return false;
                 else
                 {
-                    if(v1.getTweak() < v2.getTweak())
+                    if(v1.tweak_ < v2.tweak_)
                         return true;
                     else
                         return false;
@@ -309,25 +321,25 @@ namespace Vers
       */
     inline bool operator> (const Version& v1, const Version& v2)
     {
-        if(v1.getMajor() > v2.getMajor())
+        if(v1.major_ > v2.major_)
             return true;
-        else if(v1.getMajor() < v2.getMajor())
+        else if(v1.major_ < v2.major_)
             return false;
         else
         {
-            if(v1.getMinor() > v2.getMinor())
+            if(v1.minor_ > v2.minor_)
                 return true;
-            else if(v1.getMinor() < v2.getMinor())
+            else if(v1.minor_ < v2.minor_)
                 return false;
             else
             {
-                if(v1.getPatch() > v2.getPatch())
+                if(v1.patch_ > v2.patch_)
                     return true;
-                else if(v1.getPatch() < v2.getPatch())
+                else if(v1.patch_ < v2.patch_)
                     return false;
                 else
                 {
-                    if(v1.getTweak() > v2.getTweak())
+                    if(v1.tweak_ > v2.tweak_)
                         return true;
                     else
                         return false;
@@ -356,6 +368,31 @@ namespace Vers
     inline bool operator>= (const Version& v1, const Version& v2)
     {
         return !(v1 < v2);
+    }
+
+    /// Output stream operator
+    /**
+      * @param os Output stream
+      * @param v  Version number
+      */
+    inline std::ostream& operator<<(std::ostream& os, const Version& v)
+    {
+        const std::string stringSeparator(".");
+        os << v.major_ << stringSeparator << v.minor_ << stringSeparator << v.patch_ << stringSeparator << v.tweak_;
+        return os;
+    }
+
+    /// Input stream operator
+    /**
+      * @param is Input stream
+      * @param v Version number
+      */
+    inline std::istream& operator>>(std::istream& is, Version& v)
+    {
+        std::string s;
+        is >> s;
+        v.setVersion(s);
+        return is;
     }
 
 }
