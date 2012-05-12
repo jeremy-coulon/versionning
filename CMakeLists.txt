@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(Versionning CXX)
+project(Versionning NONE)
 
 #############
 #  Sources  #
@@ -39,16 +39,23 @@ endif()
 # Following code is enabled only if Versionning is the top level project
 if(IS_TOPLEVEL_PROJECT)
 
+    include(GNUInstallDirs)
+
     # Set install path (relative path only)
     set(INSTALL_INCLUDE_DIR include)
     set(INSTALL_CMAKE_DIR share/${PROJECT_NAME}/cmake)
     set(INSTALL_DOC_DIR share/doc/${PROJECT_NAME})
+
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
 
     ####################
     #  Subdirectories  # 
     ####################
 
     add_subdirectory(share)
+    add_subdirectory(src)
 
     ###############
     #  Packaging  #
