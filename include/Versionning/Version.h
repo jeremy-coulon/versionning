@@ -17,16 +17,19 @@
   * It allows you to store information about your library being in version vX.Y.Z.T.\n
   * It is particularly useful for comparing version number.
   * For example to know if version vX.Y.Z.T is greater than v3.12.0.0.\n
-  * This library is a header-only library. That means you don't need to compile anything to use it in your own project. You can just write :
-  * @code
-  * #include <Versionning/Version.h>
-  * @endcode
   *
   * A version number consists of 4 unsigned numbers :
   * @li The first number is called 'Major' number.
   * @li The second number is called 'Minor' number.
   * @li The third number is called 'Patch' number.
   * @li The fourth (last) number is called 'Tweak' number.
+  *
+  * @section Installation
+  *
+  * This library is a header-only library. That means you don't need to compile anything to use it in your own project. You can just write :
+  * @code
+  * #include <Versionning/Version.h>
+  * @endcode
   *
   * @section License
   *
@@ -83,7 +86,7 @@ namespace Vers
           * @param patch    3rd version number
           * @param tweak    4th version number
           */
-        Version(unsigned int major, unsigned int minor, unsigned int patch, unsigned int tweak)
+        Version(unsigned short major, unsigned short minor, unsigned short patch, unsigned short tweak)
             : major_(major), minor_(minor), patch_(patch), tweak_(tweak)
         {
 
@@ -100,25 +103,25 @@ namespace Vers
         }
 
         /// Get 1st version number
-        unsigned int getMajor() const
+        unsigned short getMajor() const
         {
             return major_;
         }
 
         /// Get 2nd version number
-        unsigned int getMinor() const
+        unsigned short getMinor() const
         {
             return minor_;
         }
 
         /// Get 3rd version number
-        unsigned int getPatch() const
+        unsigned short getPatch() const
         {
             return patch_;
         }
 
         /// Get 4th version number
-        unsigned int getTweak() const
+        unsigned short getTweak() const
         {
             return tweak_;
         }
@@ -139,25 +142,25 @@ namespace Vers
         }
 
         /// Set 1st version number
-        void setMajor(unsigned int major)
+        void setMajor(unsigned short major)
         {
             major_ = major;
         }
 
         /// Set 2nd version number
-        void setMinor(unsigned int minor)
+        void setMinor(unsigned short minor)
         {
             minor_ = minor;
         }
 
         /// Set 3rd version number
-        void setPatch(unsigned int patch)
+        void setPatch(unsigned short patch)
         {
             patch_ = patch;
         }
 
         /// Set 4th version number
-        void setTweak(unsigned int tweak)
+        void setTweak(unsigned short tweak)
         {
             tweak_ = tweak;
         }
@@ -179,12 +182,12 @@ namespace Vers
                 throw VersionException("Incorrect version string: " + version + " . The provided string should contains 1-4 numbers separated by '.' or ','.");
 
             boost::algorithm::trim(splitResult[0]);
-            major_ = boost::lexical_cast<unsigned int>(splitResult[0]);
+            major_ = boost::lexical_cast<unsigned short>(splitResult[0]);
 
             if(splitResult.size() >= 2)
             {
                 boost::algorithm::trim(splitResult[1]);
-                minor_ = boost::lexical_cast<unsigned int>(splitResult[1]);
+                minor_ = boost::lexical_cast<unsigned short>(splitResult[1]);
             }
             else
                 minor_ = 0;
@@ -192,7 +195,7 @@ namespace Vers
             if(splitResult.size() >= 3)
             {
                 boost::algorithm::trim(splitResult[2]);
-                patch_ = boost::lexical_cast<unsigned int>(splitResult[2]);
+                patch_ = boost::lexical_cast<unsigned short>(splitResult[2]);
             }
             else
                 patch_ = 0;
@@ -200,17 +203,17 @@ namespace Vers
             if(splitResult.size() == 4)
             {
                 boost::algorithm::trim(splitResult[3]);
-                tweak_ = boost::lexical_cast<unsigned int>(splitResult[3]);
+                tweak_ = boost::lexical_cast<unsigned short>(splitResult[3]);
             }
             else
                 tweak_ = 0;
         }
 
     private:
-        unsigned int major_;
-        unsigned int minor_;
-        unsigned int patch_;
-        unsigned int tweak_;
+        unsigned short major_;
+        unsigned short minor_;
+        unsigned short patch_;
+        unsigned short tweak_;
     };
 
     /// Equal operator of 2 version numbers
