@@ -127,9 +127,9 @@ namespace Vers
         }
 
         /// Get complete version number as a string
-        std::string getVersion() const
+        std::string toString() const
         {
-            static const std::string separator(".");
+            const std::string separator(".");
             std::string result;
             result += boost::lexical_cast<std::string>(major_);
             result += separator;
