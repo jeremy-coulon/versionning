@@ -12,6 +12,8 @@
 //==  Boost  ==
 //=============
 #include <boost/exception/exception.hpp>
+#include <boost/exception/info.hpp>
+#include <boost/exception_ptr.hpp>
 
 //===========
 //==  STD  ==
@@ -27,22 +29,10 @@ namespace Vers
       * @note This struct inherits from boost::exception.
       * See Boost Exception library documentation at http://www.boost.org/doc/libs/1_49_0/libs/exception/doc/boost-exception.html
       */
-    struct VersionException : virtual std::runtime_error, virtual boost::exception
+    struct VersionException : virtual std::exception, virtual boost::exception
     {
-        /// Constructor
-        /**
-          * @param  msg a message string describing the exception
-          */
-        VersionException(const std::string& msg)
-            : std::runtime_error(msg)
-        {
-
-        }
-
-        /// Destructor
-        virtual ~VersionException() throw()
-        {
-
-        }
     };
+
+    typedef boost::error_info<struct tag_input_version, std::string> input_version;
+    typedef boost::error_info<struct tag_nested_exception, boost::exception_ptr> nested_exception;
 }

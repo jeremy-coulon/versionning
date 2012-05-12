@@ -170,43 +170,68 @@ namespace Vers
           * The given string must be well formed.
           * It must be composed of 1 to 4 unsigned numbers separated by a dot '.' or comma ','.
           * If the string is bad formed, an exception is thrown.
+          * This method provides the strong exception-safety guarantee.
           * @param version a string containing the version number
           * @throw VersionException
           */
         void setVersion(const std::string& version)
         {
-            std::vector<std::string> splitResult;
-            boost::algorithm::split(splitResult, version, boost::algorithm::is_any_of(".,"));
-            // Check that we have between 1 and 4 numbers in the version string
-            if(splitResult.size() == 0 || splitResult.size() > 4)
-                throw VersionException("Incorrect version string: " + version + " . The provided string should contains 1-4 numbers separated by '.' or ','.");
-
-            boost::algorithm::trim(splitResult[0]);
-            major_ = boost::lexical_cast<unsigned short>(splitResult[0]);
-
-            if(splitResult.size() >= 2)
+            unsigned short major, minor, patch, tweak;
+            try
             {
-                boost::algorithm::trim(splitResult[1]);
-                minor_ = boost::lexical_cast<unsigned short>(splitResult[1]);
-            }
-            else
-                minor_ = 0;
+                std::vector<std::string> splitResult;
+                boost::algorithm::split(splitResult, version, boost::algorithm::is_any_of(".,"));
+                // Check that we have between 1 and 4 numbers in the version string
+                if(splitResult.size() == 0 || splitResult.size() > 4)
+                    BOOST_THROW_EXCEPTION(VersionException());
 
-            if(splitResult.size() >= 3)
-            {
-                boost::algorithm::trim(splitResult[2]);
-                patch_ = boost::lexical_cast<unsigned short>(splitResult[2]);
-            }
-            else
-                patch_ = 0;
+                boost::algorithm::trim(splitResult[0]);
+                major = boost::lexical_cast<unsigned short>(splitResult[0]);
 
-            if(splitResult.size() == 4)
-            {
-                boost::algorithm::trim(splitResult[3]);
-                tweak_ = boost::lexical_cast<unsigned short>(splitResult[3]);
+                if(splitResult.size() >= 2)
+                {
+                    boost::algorithm::trim(splitResult[1]);
+                    minor = boost::lexical_cast<unsigned short>(splitResult[1]);
+                }
+                else
+                    minor = 0;
+
+                if(splitResult.size() >= 3)
+                {
+                    boost::algorithm::trim(splitResult[2]);
+                    patch = boost::lexical_cast<unsigned short>(splitResult[2]);
+                }
+                else
+                    patch = 0;
+
+                if(splitResult.size() == 4)
+                {
+                    boost::algorithm::trim(splitResult[3]);
+                    tweak = boost::lexical_cast<unsigned short>(splitResult[3]);
+                }
+                else
+                    tweak = 0;
             }
-            else
-                tweak_ = 0;
+            catch(const VersionException& e)
+            {
+                e << input_version(version);
+                throw;
+            }
+            catch(const boost::exception& /*e*/)
+            {
+                boost::exception_ptr e_ptr = boost::current_exception();
+                throw VersionException() << input_version(version) << nested_exception(e_ptr);
+            }
+            catch(const std::exception& /*e*/)
+            {
+                boost::exception_ptr e_ptr = boost::current_exception();
+                throw VersionException() << input_version(version) << nested_exception(e_ptr);
+            }
+
+            major_ = major;
+            minor_ = minor;
+            patch_ = patch;
+            tweak_ = tweak;
         }
 
     private:
