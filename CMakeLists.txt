@@ -39,13 +39,12 @@ endif()
 # Following code is enabled only if Versionning is the top level project
 if(IS_TOPLEVEL_PROJECT)
 
+    # Set install path
     include(GNUInstallDirs)
+    set(CMAKE_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/cmake)
+    set(CMAKE_INSTALL_FULL_CMAKEDIR ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_CMAKEDIR})
 
-    # Set install path (relative path only)
-    set(INSTALL_INCLUDE_DIR include)
-    set(INSTALL_CMAKE_DIR share/${PROJECT_NAME}/cmake)
-    set(INSTALL_DOC_DIR share/doc/${PROJECT_NAME})
-
+    # Build output directories
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
@@ -64,7 +63,7 @@ if(IS_TOPLEVEL_PROJECT)
     # Package include directory
     install(DIRECTORY
 	${PROJECT_INCLUDE_DIR}/
-	DESTINATION ${INSTALL_INCLUDE_DIR}
+	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 	COMPONENT dev
     )
 
