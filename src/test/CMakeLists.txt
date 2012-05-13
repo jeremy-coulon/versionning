@@ -1,10 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 
-option(Versionning_BUILD_TEST "Build tests" ON)
+option(Versionning_BUILD_TEST "Build tests" OFF)
 
 if(Versionning_BUILD_TEST)
-
-    set(CMAKE_USER_MAKE_RULES_OVERRIDE ${CMAKE_CURRENT_LIST_DIR}/DefaultBuildFlags.cmake)
 
     project(VersionningTest CXX)
 
