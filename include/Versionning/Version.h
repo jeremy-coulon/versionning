@@ -38,7 +38,7 @@
   *   (See accompanying file <a href="../LICENSE_1_0.txt">LICENSE_1_0.txt</a> or copy at\n
   *         http://www.boost.org/LICENSE_1_0.txt)
   *
-  * \example example1.cpp
+  * \example example.cpp
   * This is an example of how to compare 2 version numbers.
   * Output : \verbatim Version v1.3.5.8 is less than version v1.3.7.2 \endverbatim
   *
