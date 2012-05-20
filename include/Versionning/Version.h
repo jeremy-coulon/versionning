@@ -99,12 +99,15 @@ namespace Vers
         /**
           * @param version a string representing a version number. This string must be well formed.
           * @throw VersionException
-          * @see setVersion()
+          * @see set(const std::string&)
           */
         Version(const std::string& version)
         {
-            setVersion(version);
+            set(version);
         }
+
+        /// @name Getters
+        ///@{
 
         /// Get 1st version number
         unsigned short getMajor() const
@@ -145,6 +148,11 @@ namespace Vers
             return result;
         }
 
+        ///@}
+
+        /// @name Setters
+        ///@{
+
         /// Set 1st version number
         void setMajor(unsigned short major)
         {
@@ -169,6 +177,15 @@ namespace Vers
             tweak_ = tweak;
         }
 
+        /// Set complete version number from 4 numbers
+        void set(unsigned short major, unsigned short minor, unsigned short patch, unsigned short tweak)
+        {
+            major_ = major;
+            minor_ = minor;
+            patch_ = patch;
+            tweak_ = tweak;
+        }
+
         /// Set complete version number from a string
         /**
           * The given string must be well formed.
@@ -178,7 +195,7 @@ namespace Vers
           * @param version a string containing the version number
           * @throw VersionException
           */
-        void setVersion(const std::string& version)
+        void set(const std::string& version)
         {
             unsigned short major, minor, patch, tweak;
             try
@@ -237,6 +254,8 @@ namespace Vers
             patch_ = patch;
             tweak_ = tweak;
         }
+
+        ///@}
 
     private:
         unsigned short major_;
@@ -393,7 +412,7 @@ namespace Vers
     {
         std::string s;
         is >> s;
-        v.setVersion(s);
+        v.set(s);
         return is;
     }
 

@@ -29,8 +29,8 @@ BOOST_AUTO_TEST_CASE(IncorrectInputString)
     Vers::Version v1(0, 3, 5, 0);
     Vers::Version v2(0, 3, 5, 0);
 
-    BOOST_CHECK_THROW(v1.setVersion(""), Vers::VersionException);
-    BOOST_CHECK_THROW(v1.setVersion("0.3.zzz"), Vers::VersionException);
+    BOOST_CHECK_THROW(v1.set(""), Vers::VersionException);
+    BOOST_CHECK_THROW(v1.set("0.3.zzz"), Vers::VersionException);
 
     // Check that v1 remains the same (strong exception-safety guarantee).
     BOOST_CHECK_EQUAL(v1, v2);
