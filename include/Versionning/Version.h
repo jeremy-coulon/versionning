@@ -63,7 +63,7 @@
 //===========
 #include <string>
 #include <vector>
-#include <iostream>
+#include <iosfwd>
 
 /// Namespace of the Versionning library
 namespace Vers
