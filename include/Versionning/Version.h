@@ -63,7 +63,7 @@
 //===========
 #include <string>
 #include <vector>
-#include <iosfwd>
+#include <iostream>
 
 /// Namespace of the Versionning library
 namespace Vers
@@ -262,16 +262,6 @@ namespace Vers
         unsigned short minor_;
         unsigned short patch_;
         unsigned short tweak_;
-
-        // Frienship
-        friend bool operator==(const Version& v1, const Version& v2);
-        friend bool operator!=(const Version& v1, const Version& v2);
-        friend bool operator< (const Version& v1, const Version& v2);
-        friend bool operator> (const Version& v1, const Version& v2);
-        friend bool operator<=(const Version& v1, const Version& v2);
-        friend bool operator>=(const Version& v1, const Version& v2);
-        friend std::ostream& operator<<(std::ostream& os, const Version& v);
-        friend std::istream& operator>>(std::istream& is, Version& v);
     };
 
     /// Equal operator of 2 version numbers
@@ -282,10 +272,10 @@ namespace Vers
       */
     inline bool operator== (const Version& v1, const Version& v2)
     {
-        return v1.major_ == v2.major_
-                && v1.minor_ == v2.minor_
-                && v1.patch_ == v2.patch_
-                && v1.tweak_ == v2.tweak_;
+        return v1.getMajor() == v2.getMajor()
+                && v1.getMinor() == v2.getMinor()
+                && v1.getPatch() == v2.getPatch()
+                && v1.getTweak() == v2.getTweak();
     }
 
     /// Not-Equal operator of 2 version numbers
@@ -307,25 +297,25 @@ namespace Vers
       */
     inline bool operator< (const Version& v1, const Version& v2)
     {
-        if(v1.major_ < v2.major_)
+        if(v1.getMajor() < v2.getMajor())
             return true;
-        else if(v1.major_ > v2.major_)
+        else if(v1.getMajor() > v2.getMajor())
             return false;
         else
         {
-            if(v1.minor_ < v2.minor_)
+            if(v1.getMinor() < v2.getMinor())
                 return true;
-            else if(v1.minor_ > v2.minor_)
+            else if(v1.getMinor() > v2.getMinor())
                 return false;
             else
             {
-                if(v1.patch_ < v2.patch_)
+                if(v1.getPatch() < v2.getPatch())
                     return true;
-                else if(v1.patch_ > v2.patch_)
+                else if(v1.getPatch() > v2.getPatch())
                     return false;
                 else
                 {
-                    if(v1.tweak_ < v2.tweak_)
+                    if(v1.getTweak() < v2.getTweak())
                         return true;
                     else
                         return false;
@@ -342,25 +332,25 @@ namespace Vers
       */
     inline bool operator> (const Version& v1, const Version& v2)
     {
-        if(v1.major_ > v2.major_)
+        if(v1.getMajor() > v2.getMajor())
             return true;
-        else if(v1.major_ < v2.major_)
+        else if(v1.getMajor() < v2.getMajor())
             return false;
         else
         {
-            if(v1.minor_ > v2.minor_)
+            if(v1.getMinor() > v2.getMinor())
                 return true;
-            else if(v1.minor_ < v2.minor_)
+            else if(v1.getMinor() < v2.getMinor())
                 return false;
             else
             {
-                if(v1.patch_ > v2.patch_)
+                if(v1.getPatch() > v2.getPatch())
                     return true;
-                else if(v1.patch_ < v2.patch_)
+                else if(v1.getPatch() < v2.getPatch())
                     return false;
                 else
                 {
-                    if(v1.tweak_ > v2.tweak_)
+                    if(v1.getTweak() > v2.getTweak())
                         return true;
                     else
                         return false;
@@ -398,8 +388,8 @@ namespace Vers
       */
     inline std::ostream& operator<<(std::ostream& os, const Version& v)
     {
-        const std::string stringSeparator(".");
-        os << v.major_ << stringSeparator << v.minor_ << stringSeparator << v.patch_ << stringSeparator << v.tweak_;
+        const char stringSeparator('.');
+        os << v.getMajor() << stringSeparator << v.getMinor() << stringSeparator << v.getPatch() << stringSeparator << v.getTweak();
         return os;
     }
 
@@ -410,9 +400,10 @@ namespace Vers
       */
     inline std::istream& operator>>(std::istream& is, Version& v)
     {
-        std::string s;
-        is >> s;
-        v.set(s);
+        char separator;
+        unsigned short major, minor, patch, tweak;
+        is >> major >> separator >> minor >> separator >> patch >> separator >> tweak;
+        v.set(major, minor, patch, tweak);
         return is;
     }
 
