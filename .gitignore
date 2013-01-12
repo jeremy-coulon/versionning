@@ -1,5 +1,6 @@
 *~
 build
+install
 qtcreator-build
 qtcreator-build-debug
 CMakeLists.txt.user
