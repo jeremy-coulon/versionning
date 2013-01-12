@@ -7,6 +7,7 @@ if(Versionning_BUILD_EXAMPLE)
     project(VersionningExample CXX)
 
     find_package(Boost REQUIRED)
+    mark_as_advanced(Boost_DIR)
 
     include_directories(
         ${Versionning_INCLUDE_DIR}

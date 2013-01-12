@@ -7,6 +7,7 @@ if(Versionning_BUILD_TEST)
     project(VersionningTest CXX)
 
     find_package(Boost REQUIRED unit_test_framework)
+    mark_as_advanced(Boost_DIR)
 
     set(${PROJECT_NAME}_FILES
         ${PROJECT_SOURCE_DIR}/main.cpp
