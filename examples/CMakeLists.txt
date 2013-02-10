@@ -14,6 +14,10 @@ if(Versionning_BUILD_EXAMPLE)
         ${Boost_INCLUDE_DIR}
     )
 
-    add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/example.cpp)
+    set(PROJECT_SRC_DIR
+        ${PROJECT_SOURCE_DIR}/src
+    )
+
+    add_executable(${PROJECT_NAME} ${PROJECT_SRC_DIR}/example.cpp)
     
 endif()

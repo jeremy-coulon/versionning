@@ -4,45 +4,7 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-/**
-  * @file
-  *
-  * @mainpage
-  * @author Jeremy Coulon
-  * @date 2012
-  *
-  * @section Introduction
-  *
-  * This C++ library contains a simple portable data structure to store versionning information of a project.\n
-  * It allows you to store information about your library being in version vX.Y.Z.T.\n
-  * It is particularly useful for comparing version number.
-  * For example to know if version vX.Y.Z.T is greater than v3.12.0.0.\n
-  *
-  * A version number consists of 4 unsigned numbers :
-  * @li The first number is called 'Major' number.
-  * @li The second number is called 'Minor' number.
-  * @li The third number is called 'Patch' number.
-  * @li The fourth (last) number is called 'Tweak' number.
-  *
-  * @section Installation
-  *
-  * This library is a header-only library. That means you don't need to compile anything to use it in your own project. You can just write :
-  * @code
-  * #include <Versionning/Version.h>
-  * @endcode
-  *
-  * @section License
-  *
-  * Copyright Jeremy Coulon 2012.\n
-  * Distributed under the Boost Software License, Version 1.0.\n
-  *   (See accompanying file <a href="../LICENSE_1_0.txt">LICENSE_1_0.txt</a> or copy at\n
-  *         http://www.boost.org/LICENSE_1_0.txt)
-  *
-  * \example example.cpp
-  * This is an example of how to compare 2 version numbers.\n
-  * Output : \verbatim Version v1.3.5.8 is less than version v1.3.7.2 \endverbatim
-  *
-  */
+/** @file */
 
 #pragma once
 
@@ -99,16 +61,13 @@ namespace Vers
         /**
           * @param version a string representing a version number. This string must be well formed.
           * @throw VersionException
-          * @see set(const std::string&)
+          * @see Version::set(const std::string&)
           */
         Version(const std::string& version)
         {
             set(version);
         }
-
-        /// @name Getters
-        ///@{
-
+        
         /// Get 1st version number
         unsigned short getMajor() const
         {
@@ -147,11 +106,6 @@ namespace Vers
             result += boost::lexical_cast<std::string>(tweak_);
             return result;
         }
-
-        ///@}
-
-        /// @name Setters
-        ///@{
 
         /// Set 1st version number
         void setMajor(unsigned short major)
@@ -254,8 +208,6 @@ namespace Vers
             patch_ = patch;
             tweak_ = tweak;
         }
-
-        ///@}
 
     private:
         unsigned short major_;
@@ -406,6 +358,4 @@ namespace Vers
         v.set(major, minor, patch, tweak);
         return is;
     }
-
 }
-

@@ -1,0 +1,51 @@
+[library Versionning
+    [quickbook 1.5]
+    [version @Versionning_VERSION@]
+    [copyright 2012-2013 Jérémy Coulon]
+    [license
+        Distributed under the Boost Software License, Version 1.0.
+        (See accompanying file LICENSE_1_0.txt or copy at
+        [@http://www.boost.org/LICENSE_1_0.txt])
+    ]
+    [authors [Coulon, Jérémy] ]
+]
+
+[section Introduction]
+
+This C++ library contains a simple portable data structure to store versionning information of a project.
+
+It allows you to store information about your library being in version vX.Y.Z.T.
+
+It is particularly useful for comparing version number. For example to know if version vX.Y.Z.T is greater than v3.12.0.0.
+
+A version number consists of 4 unsigned numbers :
+
+* The first number is called *Major* number.
+* The second number is called *Minor* number.
+* The third number is called *Patch* number.
+* The fourth (last) number is called *Tweak* number.
+
+[endsect]
+
+[section Installation]
+
+This library is a header-only library. That means you don't need to compile anything to use it in your own project. You can just write :
+
+  #include <Versionning/Version.h>
+
+[endsect]
+
+[section Examples]
+
+[import @PROJECT_SOURCE_DIR@/examples/src/example.cpp]
+
+This is an example of how to compare 2 version numbers.
+[example_file]
+Output :
+[pre
+Version v1.3.5.8 is less than version v1.3.7.2
+]
+
+[endsect]
+
+[xinclude @CMAKE_CURRENT_BINARY_DIR@/boostbook/boostbook.xml]

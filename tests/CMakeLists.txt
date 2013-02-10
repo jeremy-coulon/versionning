@@ -4,15 +4,19 @@ option(Versionning_BUILD_TEST "Build tests" OFF)
 
 if(Versionning_BUILD_TEST)
 
-    project(VersionningTest CXX)
+    project(VersionningTests CXX)
 
     find_package(Boost REQUIRED unit_test_framework)
     mark_as_advanced(Boost_DIR)
 
+    set(PROJECT_SRC_DIR
+        ${PROJECT_SOURCE_DIR}/src
+    )
+
     set(${PROJECT_NAME}_FILES
-        ${PROJECT_SOURCE_DIR}/main.cpp
-        ${PROJECT_SOURCE_DIR}/testComparisonOperators.cpp
-        ${PROJECT_SOURCE_DIR}/testStringConversions.cpp
+        ${PROJECT_SRC_DIR}/main.cpp
+        ${PROJECT_SRC_DIR}/testComparisonOperators.cpp
+        ${PROJECT_SRC_DIR}/testStringConversions.cpp
     )
 
     include_directories(
