@@ -1,6 +1,6 @@
 [submodule "cmake/cmake-tools"]
 	path = cmake/cmake-tools
-	url = supaserver.local:git/cmake-tools.git
+	url = git@github.com:jeremy-coulon/cmake-tools.git
 [submodule "share/doc/quickbook"]
 	path = share/doc/quickbook
-	url = supaserver.local:git/quickbook.git
+	url = git@github.com:jeremy-coulon/quickbook.git
