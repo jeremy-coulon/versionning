@@ -72,7 +72,7 @@ echo "set(\${PROJECT_NAME}_VERSION \"\${\${PROJECT_NAME}_MAJOR}.\${\${PROJECT_NA
 
 # Commit changes
 git add version.cmake
-git commit -m "update version v$1"
+git commit -m "update version.cmake"
 if ! git push
 then
   echo Error: git push
