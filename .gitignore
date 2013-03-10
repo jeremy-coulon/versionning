@@ -1,7 +1,8 @@
 *~
-build
-install
-qtcreator-build
-qtcreator-build-debug
+build/
+install/
+qtcreator-build/
+qtcreator-build-debug/
+qtcreator-build-release/
 CMakeLists.txt.user
 .directory
