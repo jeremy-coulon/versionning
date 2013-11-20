@@ -330,7 +330,7 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return - True if the first version number is less than or equal to the second version number.
+      * @return - True if v1 is less than or equal to v2.
       *         - False otherwise.
       */
     inline bool operator<= (const Version& v1, const Version& v2)
@@ -342,7 +342,7 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return - True if the first version number is greater than or equal to the second version number.
+      * @return - True if v1 is greater than or equal to v2.
       *         - False otherwise.
       */
     inline bool operator>= (const Version& v1, const Version& v2)
