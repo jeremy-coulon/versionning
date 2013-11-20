@@ -67,7 +67,7 @@ namespace Vers
         {
             set(version);
         }
-        
+
         /// Get 1st version number
         unsigned short getMajor() const
         {
@@ -157,47 +157,53 @@ namespace Vers
                 std::vector<std::string> splitResult;
                 boost::algorithm::split(splitResult, version, boost::algorithm::is_any_of(".,"));
                 // Check that we have between 1 and 4 numbers in the version string
-                if(splitResult.size() == 0 || splitResult.size() > 4)
+                if (splitResult.size() == 0 || splitResult.size() > 4)
                     BOOST_THROW_EXCEPTION(VersionException());
 
                 boost::algorithm::trim(splitResult[0]);
                 major = boost::lexical_cast<unsigned short>(splitResult[0]);
 
-                if(splitResult.size() >= 2)
+                if (splitResult.size() >= 2)
                 {
                     boost::algorithm::trim(splitResult[1]);
                     minor = boost::lexical_cast<unsigned short>(splitResult[1]);
                 }
                 else
+                {
                     minor = 0;
+                }
 
-                if(splitResult.size() >= 3)
+                if (splitResult.size() >= 3)
                 {
                     boost::algorithm::trim(splitResult[2]);
                     patch = boost::lexical_cast<unsigned short>(splitResult[2]);
                 }
                 else
+                {
                     patch = 0;
+                }
 
-                if(splitResult.size() == 4)
+                if (splitResult.size() == 4)
                 {
                     boost::algorithm::trim(splitResult[3]);
                     tweak = boost::lexical_cast<unsigned short>(splitResult[3]);
                 }
                 else
+                {
                     tweak = 0;
+                }
             }
-            catch(const VersionException& e)
+            catch (const VersionException& e)
             {
                 e << input_version(version);
                 throw;
             }
-            catch(const boost::exception& /*e*/)
+            catch (const boost::exception& /*e*/)
             {
                 boost::exception_ptr e_ptr = boost::current_exception();
                 throw VersionException() << input_version(version) << nested_exception(e_ptr);
             }
-            catch(const std::exception& /*e*/)
+            catch (const std::exception& /*e*/)
             {
                 boost::exception_ptr e_ptr = boost::current_exception();
                 throw VersionException() << input_version(version) << nested_exception(e_ptr);
@@ -249,25 +255,25 @@ namespace Vers
       */
     inline bool operator< (const Version& v1, const Version& v2)
     {
-        if(v1.getMajor() < v2.getMajor())
+        if (v1.getMajor() < v2.getMajor())
             return true;
-        else if(v1.getMajor() > v2.getMajor())
+        else if (v1.getMajor() > v2.getMajor())
             return false;
         else
         {
-            if(v1.getMinor() < v2.getMinor())
+            if (v1.getMinor() < v2.getMinor())
                 return true;
-            else if(v1.getMinor() > v2.getMinor())
+            else if (v1.getMinor() > v2.getMinor())
                 return false;
             else
             {
-                if(v1.getPatch() < v2.getPatch())
+                if (v1.getPatch() < v2.getPatch())
                     return true;
-                else if(v1.getPatch() > v2.getPatch())
+                else if (v1.getPatch() > v2.getPatch())
                     return false;
                 else
                 {
-                    if(v1.getTweak() < v2.getTweak())
+                    if (v1.getTweak() < v2.getTweak())
                         return true;
                     else
                         return false;
@@ -284,25 +290,25 @@ namespace Vers
       */
     inline bool operator> (const Version& v1, const Version& v2)
     {
-        if(v1.getMajor() > v2.getMajor())
+        if (v1.getMajor() > v2.getMajor())
             return true;
-        else if(v1.getMajor() < v2.getMajor())
+        else if (v1.getMajor() < v2.getMajor())
             return false;
         else
         {
-            if(v1.getMinor() > v2.getMinor())
+            if (v1.getMinor() > v2.getMinor())
                 return true;
-            else if(v1.getMinor() < v2.getMinor())
+            else if (v1.getMinor() < v2.getMinor())
                 return false;
             else
             {
-                if(v1.getPatch() > v2.getPatch())
+                if (v1.getPatch() > v2.getPatch())
                     return true;
-                else if(v1.getPatch() < v2.getPatch())
+                else if (v1.getPatch() < v2.getPatch())
                     return false;
                 else
                 {
-                    if(v1.getTweak() > v2.getTweak())
+                    if (v1.getTweak() > v2.getTweak())
                         return true;
                     else
                         return false;
