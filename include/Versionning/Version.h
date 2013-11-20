@@ -41,7 +41,7 @@ namespace Vers
         Version()
             : major_(0), minor_(0), patch_(0), tweak_(0)
         {
-
+            // Empty
         }
 
         /// Constructor taking 4 numbers as parameters
@@ -51,10 +51,13 @@ namespace Vers
           * @param patch    3rd version number
           * @param tweak    4th version number
           */
-        Version(unsigned short major, unsigned short minor, unsigned short patch, unsigned short tweak)
+        Version(unsigned short major,
+                unsigned short minor,
+                unsigned short patch,
+                unsigned short tweak)
             : major_(major), minor_(minor), patch_(patch), tweak_(tweak)
         {
-
+            // Empty
         }
 
         /// Constructor from a string
@@ -132,7 +135,10 @@ namespace Vers
         }
 
         /// Set complete version number from 4 numbers
-        void set(unsigned short major, unsigned short minor, unsigned short patch, unsigned short tweak)
+        void set(unsigned short major,
+                 unsigned short minor,
+                 unsigned short patch,
+                 unsigned short tweak)
         {
             major_ = major;
             minor_ = minor;
@@ -226,7 +232,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the 2 versions are equal. False otherwise.
+      * @return - True if the 2 versions are equal.
+      *         - False otherwise.
       */
     inline bool operator== (const Version& v1, const Version& v2)
     {
@@ -240,7 +247,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the 2 versions are different. False otherwise.
+      * @return - True if the 2 versions are different.
+      *         - False otherwise.
       */
     inline bool operator!= (const Version& v1, const Version& v2)
     {
@@ -251,7 +259,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the first version number is less than the second version number. False otherwise.
+      * @return - True if the first version number is less than the second version number.
+      *         - False otherwise.
       */
     inline bool operator< (const Version& v1, const Version& v2)
     {
@@ -286,7 +295,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the first version number is greater than the second version number. False otherwise.
+      * @return - True if the first version number is greater than the second version number.
+      *         - False otherwise.
       */
     inline bool operator> (const Version& v1, const Version& v2)
     {
@@ -321,7 +331,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the first version number is less than or equal to the second version number. False otherwise.
+      * @return - True if the first version number is less than or equal to the second version number.
+      *         - False otherwise.
       */
     inline bool operator<= (const Version& v1, const Version& v2)
     {
@@ -332,7 +343,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return True if the first version number is greater than or equal to the second version number. False otherwise.
+      * @return - True if the first version number is greater than or equal to the second version number.
+      *         - False otherwise.
       */
     inline bool operator>= (const Version& v1, const Version& v2)
     {
@@ -347,7 +359,10 @@ namespace Vers
     inline std::ostream& operator<<(std::ostream& os, const Version& v)
     {
         const char stringSeparator('.');
-        os << v.getMajor() << stringSeparator << v.getMinor() << stringSeparator << v.getPatch() << stringSeparator << v.getTweak();
+        os << v.getMajor()
+           << stringSeparator << v.getMinor()
+           << stringSeparator << v.getPatch()
+           << stringSeparator << v.getTweak();
         return os;
     }
 

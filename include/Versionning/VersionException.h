@@ -27,7 +27,8 @@ namespace Vers
     /// Exception type that can be thrown when using the Versionning library
     /**
       * @note This struct inherits from boost::exception.
-      * See Boost Exception library documentation at http://www.boost.org/doc/libs/1_49_0/libs/exception/doc/boost-exception.html
+      * See Boost Exception library documentation at:
+      * http://www.boost.org/doc/libs/1_54_0/libs/exception/doc/boost-exception.html
       */
     struct VersionException : virtual std::exception, virtual boost::exception
     {
