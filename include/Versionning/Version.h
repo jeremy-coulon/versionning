@@ -38,7 +38,10 @@ namespace Vers
           * Version is initialized to v0.0.0.0
           */
         Version()
-            : major_(0), minor_(0), patch_(0), tweak_(0)
+            : major_(0)
+            , minor_(0)
+            , patch_(0)
+            , tweak_(0)
         {
             // Empty
         }
@@ -54,7 +57,10 @@ namespace Vers
                 unsigned short minor,
                 unsigned short patch,
                 unsigned short tweak)
-            : major_(major), minor_(minor), patch_(patch), tweak_(tweak)
+            : major_(major)
+            , minor_(minor)
+            , patch_(patch)
+            , tweak_(tweak)
         {
             // Empty
         }
