@@ -4,7 +4,7 @@ option(Versionning_BUILD_TEST "Build tests" OFF)
 
 if(Versionning_BUILD_TEST)
 
-    project(VersionningTests CXX)
+    project(TestVersionning CXX)
 
     find_package(Boost REQUIRED unit_test_framework)
     mark_as_advanced(Boost_DIR)
