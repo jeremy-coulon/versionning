@@ -3,8 +3,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Class Version</title>
 <link rel="stylesheet" href="../boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Versionning 0.0.3.3">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Versionning 0.0.3.4">
 <link rel="up" href="../versionning/reference.html#header.Versionning.Version_h" title="Header &lt;Versionning/Version.h&gt;">
 <link rel="prev" href="../versionning/reference.html" title="Reference">
 <link rel="next" href="operator__.html" title="Function operator==">
@@ -26,44 +26,50 @@
 <span class="keyword">class</span> <a class="link" href="Version.html" title="Class Version">Version</a> <span class="special">{</span>
 <span class="keyword">public</span><span class="special">:</span>
   <span class="comment">// <a class="link" href="Version.html#Vers.Versionconstruct-copy-destruct">construct/copy/destruct</a></span>
-  <a class="link" href="Version.html#idm19616-bb"><span class="identifier">Version</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="Version.html#idm18208-bb"><span class="identifier">Version</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
-  <a class="link" href="Version.html#idm12992-bb"><span class="identifier">Version</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="Version.html#idp26374208-bb"><span class="identifier">Version</span></a><span class="special">(</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="Version.html#idp26375616-bb"><span class="identifier">Version</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
+  <a class="link" href="Version.html#idp26380832-bb"><span class="identifier">Version</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
 
-  <span class="comment">// <a class="link" href="Version.html#idm41600-bb">public member functions</a></span>
-  <span class="keyword">unsigned</span> <span class="keyword">short</span> <a class="link" href="Version.html#idm41312-bb"><span class="identifier">getMajor</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">unsigned</span> <span class="keyword">short</span> <a class="link" href="Version.html#idm40096-bb"><span class="identifier">getMinor</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">unsigned</span> <span class="keyword">short</span> <a class="link" href="Version.html#idm38880-bb"><span class="identifier">getPatch</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">unsigned</span> <span class="keyword">short</span> <a class="link" href="Version.html#idm37664-bb"><span class="identifier">getTweak</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <a class="link" href="Version.html#idm36400-bb"><span class="identifier">toString</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="Version.html#idm35184-bb"><span class="identifier">setMajor</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="Version.html#idm33232-bb"><span class="identifier">setMinor</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="Version.html#idm31168-bb"><span class="identifier">setPatch</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="Version.html#idm29216-bb"><span class="identifier">setTweak</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="Version.html#idm27264-bb"><span class="identifier">set</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
-  <span class="keyword">void</span> <a class="link" href="Version.html#idm23296-bb"><span class="identifier">set</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
+  <span class="comment">// <a class="link" href="Version.html#idp36535904-bb">public member functions</a></span>
+  <span class="keyword">unsigned</span> <span class="keyword">short</span> <a class="link" href="Version.html#idp26352784-bb"><span class="identifier">getMajor</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">unsigned</span> <span class="keyword">short</span> <a class="link" href="Version.html#idp26353888-bb"><span class="identifier">getMinor</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">unsigned</span> <span class="keyword">short</span> <a class="link" href="Version.html#idp26355104-bb"><span class="identifier">getPatch</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">unsigned</span> <span class="keyword">short</span> <a class="link" href="Version.html#idp26356320-bb"><span class="identifier">getTweak</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <a class="link" href="Version.html#idp26357536-bb"><span class="identifier">toString</span></a><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="Version.html#idp26358752-bb"><span class="identifier">setMajor</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="Version.html#idp26360704-bb"><span class="identifier">setMinor</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="Version.html#idp26362656-bb"><span class="identifier">setPatch</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="Version.html#idp26364608-bb"><span class="identifier">setTweak</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="Version.html#idp26366560-bb"><span class="identifier">set</span></a><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span><span class="special">)</span><span class="special">;</span>
+  <span class="keyword">void</span> <a class="link" href="Version.html#idp26370528-bb"><span class="identifier">set</span></a><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span><span class="special">)</span><span class="special">;</span>
 <span class="special">}</span><span class="special">;</span></pre></div>
 <div class="refsect1">
-<a name="idp4903696"></a><h2>Description</h2>
+<a name="idp86555088"></a><h2>Description</h2>
 <div class="refsect2">
-<a name="idp4904080"></a><h3>
+<a name="idp86555472"></a><h3>
 <a name="Vers.Versionconstruct-copy-destruct"></a><code class="computeroutput">Version</code> 
         public
        construct/copy/destruct</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><a name="idm19616-bb"></a><span class="identifier">Version</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>Default constructor. <p><code class="computeroutput"><a class="link" href="Version.html" title="Class Version">Version</a></code> is initialized to v0.0.0.0 </p>
+<pre class="literallayout"><a name="idp26374208-bb"></a><span class="identifier">Version</span><span class="special">(</span><span class="special">)</span><span class="special">;</span></pre>Default constructor. <p><code class="computeroutput"><a class="link" href="Version.html" title="Class Version">Version</a></code> is initialized to v0.0.0.0 </p>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idm18208-bb"></a><span class="identifier">Version</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> major<span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> minor<span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> patch<span class="special">,</span> 
+<pre class="literallayout"><a name="idp26375616-bb"></a><span class="identifier">Version</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> major<span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> minor<span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> patch<span class="special">,</span> 
         <span class="keyword">unsigned</span> <span class="keyword">short</span> tweak<span class="special">)</span><span class="special">;</span></pre>Constructor taking 4 numbers as parameters. <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist compact">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term">Parameters:</span></p></td>
-<td><div class="variablelist"><table border="0">
+<td><div class="variablelist"><table border="0" class="variablelist compact">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><code class="computeroutput">major</code></span></p></td>
@@ -87,20 +93,26 @@
 </table></div>
 </li>
 <li class="listitem">
-<pre class="literallayout"><a name="idm12992-bb"></a><span class="identifier">Version</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> version<span class="special">)</span><span class="special">;</span></pre>Constructor from a string. <p>
+<pre class="literallayout"><a name="idp26380832-bb"></a><span class="identifier">Version</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> version<span class="special">)</span><span class="special">;</span></pre>Constructor from a string. <p>
 
 </p>
 <p><span class="bold"><strong>See Also:</strong></span></p>
 <p>Version::set(const std::string&amp;) </p>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist compact">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">Parameters:</span></p></td>
-<td><div class="variablelist"><table border="0">
+<td><div class="variablelist"><table border="0" class="variablelist compact">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><code class="computeroutput">version</code></span></p></td>
 <td><p>a string representing a version number. This string must be well formed. </p></td>
@@ -118,41 +130,47 @@
 </ol></div>
 </div>
 <div class="refsect2">
-<a name="idp4938640"></a><h3>
-<a name="idm41600-bb"></a><code class="computeroutput">Version</code> public member functions</h3>
+<a name="idp86590032"></a><h3>
+<a name="idp36535904-bb"></a><code class="computeroutput">Version</code> public member functions</h3>
 <div class="orderedlist"><ol class="orderedlist" type="1">
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">unsigned</span> <span class="keyword">short</span> <a name="idm41312-bb"></a><span class="identifier">getMajor</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get 1st version number. </li>
+<pre class="literallayout"><span class="keyword">unsigned</span> <span class="keyword">short</span> <a name="idp26352784-bb"></a><span class="identifier">getMajor</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get 1st version number. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">unsigned</span> <span class="keyword">short</span> <a name="idm40096-bb"></a><span class="identifier">getMinor</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get 2nd version number. </li>
+<pre class="literallayout"><span class="keyword">unsigned</span> <span class="keyword">short</span> <a name="idp26353888-bb"></a><span class="identifier">getMinor</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get 2nd version number. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">unsigned</span> <span class="keyword">short</span> <a name="idm38880-bb"></a><span class="identifier">getPatch</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get 3rd version number. </li>
+<pre class="literallayout"><span class="keyword">unsigned</span> <span class="keyword">short</span> <a name="idp26355104-bb"></a><span class="identifier">getPatch</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get 3rd version number. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">unsigned</span> <span class="keyword">short</span> <a name="idm37664-bb"></a><span class="identifier">getTweak</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get 4th version number. </li>
+<pre class="literallayout"><span class="keyword">unsigned</span> <span class="keyword">short</span> <a name="idp26356320-bb"></a><span class="identifier">getTweak</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get 4th version number. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <a name="idm36400-bb"></a><span class="identifier">toString</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get complete version number as a string. </li>
+<pre class="literallayout"><span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <a name="idp26357536-bb"></a><span class="identifier">toString</span><span class="special">(</span><span class="special">)</span> <span class="keyword">const</span><span class="special">;</span></pre>Get complete version number as a string. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idm35184-bb"></a><span class="identifier">setMajor</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> major<span class="special">)</span><span class="special">;</span></pre>Set 1st version number. </li>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp26358752-bb"></a><span class="identifier">setMajor</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> major<span class="special">)</span><span class="special">;</span></pre>Set 1st version number. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idm33232-bb"></a><span class="identifier">setMinor</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> minor<span class="special">)</span><span class="special">;</span></pre>Set 2nd version number. </li>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp26360704-bb"></a><span class="identifier">setMinor</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> minor<span class="special">)</span><span class="special">;</span></pre>Set 2nd version number. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idm31168-bb"></a><span class="identifier">setPatch</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> patch<span class="special">)</span><span class="special">;</span></pre>Set 3rd version number. </li>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp26362656-bb"></a><span class="identifier">setPatch</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> patch<span class="special">)</span><span class="special">;</span></pre>Set 3rd version number. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idm29216-bb"></a><span class="identifier">setTweak</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> tweak<span class="special">)</span><span class="special">;</span></pre>Set 4th version number. </li>
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp26364608-bb"></a><span class="identifier">setTweak</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> tweak<span class="special">)</span><span class="special">;</span></pre>Set 4th version number. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idm27264-bb"></a><span class="identifier">set</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> major<span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> minor<span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> patch<span class="special">,</span> 
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp26366560-bb"></a><span class="identifier">set</span><span class="special">(</span><span class="keyword">unsigned</span> <span class="keyword">short</span> major<span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> minor<span class="special">,</span> <span class="keyword">unsigned</span> <span class="keyword">short</span> patch<span class="special">,</span> 
          <span class="keyword">unsigned</span> <span class="keyword">short</span> tweak<span class="special">)</span><span class="special">;</span></pre>Set complete version number from 4 numbers. </li>
 <li class="listitem">
-<pre class="literallayout"><span class="keyword">void</span> <a name="idm23296-bb"></a><span class="identifier">set</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> version<span class="special">)</span><span class="special">;</span></pre>Set complete version number from a string. <p>The given string must be well formed. It must be composed of 1 to 4 unsigned numbers separated by a dot '.' or comma ','. If the string is bad formed, an exception is thrown. This method provides the strong exception-safety guarantee. 
+<pre class="literallayout"><span class="keyword">void</span> <a name="idp26370528-bb"></a><span class="identifier">set</span><span class="special">(</span><span class="keyword">const</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">string</span> <span class="special">&amp;</span> version<span class="special">)</span><span class="special">;</span></pre>Set complete version number from a string. <p>The given string must be well formed. It must be composed of 1 to 4 unsigned numbers separated by a dot '.' or comma ','. If the string is bad formed, an exception is thrown. This method provides the strong exception-safety guarantee. 
 
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist compact">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">Parameters:</span></p></td>
-<td><div class="variablelist"><table border="0">
+<td><div class="variablelist"><table border="0" class="variablelist compact">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><code class="computeroutput">version</code></span></p></td>
 <td><p>a string containing the version number </p></td>
