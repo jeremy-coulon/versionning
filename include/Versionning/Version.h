@@ -71,7 +71,7 @@ namespace Vers
           * @throw VersionException
           * @see Version::set(const std::string&)
           */
-        Version(const std::string& version)
+        explicit Version(const std::string& version)
         {
             set(version);
         }
