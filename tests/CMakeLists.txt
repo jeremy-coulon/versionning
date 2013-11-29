@@ -6,18 +6,30 @@ if(Versionning_BUILD_TEST)
 
     project(TestVersionning CXX)
 
+    ##################
+    #  Dependencies  #
+    ##################
+
     find_package(Boost REQUIRED unit_test_framework)
     mark_as_advanced(Boost_DIR)
+
+    #############
+    #  Sources  #
+    #############
 
     set(PROJECT_SRC_DIR
         ${PROJECT_SOURCE_DIR}/src
     )
 
-    set(${PROJECT_NAME}_FILES
+    set(PROJECT_FILES
         ${PROJECT_SRC_DIR}/main.cpp
         ${PROJECT_SRC_DIR}/testComparisonOperators.cpp
         ${PROJECT_SRC_DIR}/testStringConversions.cpp
     )
+
+    #######################
+    #  Compilation flags  #
+    #######################
 
     include_directories(
         ${Versionning_INCLUDE_DIR}
@@ -26,10 +38,23 @@ if(Versionning_BUILD_TEST)
 
     add_definitions(-DBOOST_TEST_DYN_LINK)
 
-    add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_FILES})
+    ############
+    #  Target  #
+    ############
+
+    add_executable(${PROJECT_NAME} ${PROJECT_FILES})
 
     target_link_libraries(${PROJECT_NAME}
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+    )
+
+    ###############
+    #  Packaging  #
+    ###############
+
+    install(
+        TARGETS ${PROJECT_NAME}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT test
     )
 
 endif()
