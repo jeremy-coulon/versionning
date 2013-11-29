@@ -76,7 +76,10 @@ if(${PROJECT_NAME}_PACKAGING_ENABLED)
         COMPONENT doc
     )
     if(${PROJECT_NAME}_BUILD_DOC)
-        install(CODE "execute_process(COMMAND \"${CMAKE_COMMAND}\" --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}_DOCUMENTATION)")
+        install(CODE
+            "execute_process(COMMAND \"${CMAKE_COMMAND}\" --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}_DOCUMENTATION)"
+            COMPONENT doc
+        )
         install(DIRECTORY
             ${CMAKE_CURRENT_BINARY_DIR}/html
             DESTINATION ${CMAKE_INSTALL_DOCDIR}
