@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-option(Versionning_BUILD_EXAMPLE "Build examples" OFF)
+option(Versionning_BUILD_EXAMPLE "Build examples" ${BUILD_ALL})
 
 if(Versionning_BUILD_EXAMPLE)
 
@@ -19,5 +19,5 @@ if(Versionning_BUILD_EXAMPLE)
     )
 
     add_executable(${PROJECT_NAME} ${PROJECT_SRC_DIR}/example.cpp)
-    
+
 endif()

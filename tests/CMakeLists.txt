@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-option(Versionning_BUILD_TEST "Build tests" OFF)
+option(Versionning_BUILD_TEST "Build tests" ${BUILD_ALL})
 
 if(Versionning_BUILD_TEST)
 
