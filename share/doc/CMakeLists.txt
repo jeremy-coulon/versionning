@@ -59,11 +59,19 @@ endif()
 #  Packaging  #
 ###############
 if(${PROJECT_NAME}_PACKAGING_ENABLED)
-    install(FILES
+    set(doc_files
         ${PROJECT_SOURCE_DIR}/LICENSE_1_0.txt
         ${PROJECT_SOURCE_DIR}/README.txt
         ${PROJECT_SOURCE_DIR}/INSTALL.txt
         ${CMAKE_CURRENT_BINARY_DIR}/VERSION.txt
+    )
+    install(FILES
+        ${doc_files}
+        DESTINATION ${CMAKE_INSTALL_DOCDIR}
+        COMPONENT dev
+    )
+    install(FILES
+        ${doc_files}
         DESTINATION ${CMAKE_INSTALL_DOCDIR}
         COMPONENT doc
     )

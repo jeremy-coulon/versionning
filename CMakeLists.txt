@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-list(APPEND CMAKE_MODULE_PATH 
+list(APPEND CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_LIST_DIR}/cmake/Modules
     ${CMAKE_CURRENT_LIST_DIR}/share/doc/quickbook/cmake/Modules
 )
@@ -89,6 +89,8 @@ if(${PROJECT_NAME}_PACKAGING_ENABLED)
         set(CPACK_GENERATOR "TGZ")
         set(CPACK_SOURCE_GENERATOR "TGZ")
     endif()
+    set(CPACK_COMPONENTS_ALL dev doc)
+    set(CPACK_ARCHIVE_COMPONENT_INSTALL ON)
     set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Simple portable C++ data structure to store versionning information of a project.")
     set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE_1_0.txt")
     set(CPACK_PACKAGE_VERSION_MAJOR ${${PROJECT_NAME}_MAJOR})
