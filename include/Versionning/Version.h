@@ -237,7 +237,7 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return 
+      * @return
       *         - True if the 2 versions are equal.
       *         - False otherwise.
       */
@@ -253,7 +253,7 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return 
+      * @return
       *         - True if the 2 versions are different.
       *         - False otherwise.
       */
@@ -266,7 +266,7 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return 
+      * @return
       *         - True if the first version number is less than the second version number.
       *         - False otherwise.
       */
@@ -303,7 +303,7 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return 
+      * @return
       *         - True if the first version number is greater than the second version number.
       *         - False otherwise.
       */
@@ -340,7 +340,7 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return 
+      * @return
       *         - True if v1 is less than or equal to v2.
       *         - False otherwise.
       */
@@ -353,7 +353,7 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return 
+      * @return
       *         - True if v1 is greater than or equal to v2.
       *         - False otherwise.
       */
