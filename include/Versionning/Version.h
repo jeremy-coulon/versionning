@@ -237,7 +237,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return - True if the 2 versions are equal.
+      * @return 
+      *         - True if the 2 versions are equal.
       *         - False otherwise.
       */
     inline bool operator== (const Version& v1, const Version& v2)
@@ -252,7 +253,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return - True if the 2 versions are different.
+      * @return 
+      *         - True if the 2 versions are different.
       *         - False otherwise.
       */
     inline bool operator!= (const Version& v1, const Version& v2)
@@ -264,7 +266,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return - True if the first version number is less than the second version number.
+      * @return 
+      *         - True if the first version number is less than the second version number.
       *         - False otherwise.
       */
     inline bool operator< (const Version& v1, const Version& v2)
@@ -300,7 +303,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return - True if the first version number is greater than the second version number.
+      * @return 
+      *         - True if the first version number is greater than the second version number.
       *         - False otherwise.
       */
     inline bool operator> (const Version& v1, const Version& v2)
@@ -336,7 +340,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return - True if v1 is less than or equal to v2.
+      * @return 
+      *         - True if v1 is less than or equal to v2.
       *         - False otherwise.
       */
     inline bool operator<= (const Version& v1, const Version& v2)
@@ -348,7 +353,8 @@ namespace Vers
     /**
       * @param v1   First version number
       * @param v2   Second version number
-      * @return - True if v1 is greater than or equal to v2.
+      * @return 
+      *         - True if v1 is greater than or equal to v2.
       *         - False otherwise.
       */
     inline bool operator>= (const Version& v1, const Version& v2)
