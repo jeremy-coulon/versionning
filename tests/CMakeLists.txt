@@ -48,6 +48,12 @@ if(Versionning_BUILD_TEST)
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
     )
 
+    #############
+    #  Testing  #
+    #############
+
+    add_test(${PROJECT_NAME} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME})
+
     ###############
     #  Packaging  #
     ###############
