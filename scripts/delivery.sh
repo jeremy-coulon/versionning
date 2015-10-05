@@ -124,7 +124,7 @@ fi
 
 # Create documentation tag
 cd $documentation_dir
-git tag -s -m "Documentation for version v$1" v$1-doc
+git tag -s -m "Documentation for version v$1" $1-doc
 if ! git push --tags
 then
   echo Error: git push --tags
@@ -133,7 +133,7 @@ fi
 
 # Create delivery tag
 cd $cmake_source_dir
-git tag -s v$1
+git tag -s $1
 if ! git push --tags
 then
   echo Error: git push --tags
