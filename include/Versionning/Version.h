@@ -38,10 +38,7 @@ namespace Vers
           * Version is initialized to v0.0.0.0
           */
         Version()
-            : major_(0),
-              minor_(0),
-              patch_(0),
-              tweak_(0)
+            : Version(0, 0, 0, 0)
         {
             // Empty
         }
