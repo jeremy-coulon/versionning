@@ -211,12 +211,12 @@ namespace Vers
             }
             catch (const boost::exception& /*e*/)
             {
-                boost::exception_ptr e_ptr = boost::current_exception();
+                std::exception_ptr e_ptr = std::current_exception();
                 throw VersionException() << input_version(version) << nested_exception(e_ptr);
             }
             catch (const std::exception& /*e*/)
             {
-                boost::exception_ptr e_ptr = boost::current_exception();
+                std::exception_ptr e_ptr = std::current_exception();
                 throw VersionException() << input_version(version) << nested_exception(e_ptr);
             }
 

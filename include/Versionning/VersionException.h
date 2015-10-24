@@ -12,12 +12,11 @@
 //=============
 #include <boost/exception/exception.hpp>
 #include <boost/exception/info.hpp>
-#include <boost/exception_ptr.hpp>
 
 //===========
 //==  STD  ==
 //===========
-#include <stdexcept>
+#include <exception>
 #include <string>
 
 /// Namespace of the Versionning library
@@ -27,7 +26,7 @@ namespace Vers
     /**
       * @note This struct inherits from boost::exception.
       * See Boost Exception library documentation at:
-      * http://www.boost.org/doc/libs/1_54_0/libs/exception/doc/boost-exception.html
+      * http://www.boost.org/doc/libs/release/libs/exception/doc/boost-exception.html
       */
     struct VersionException : virtual std::exception, virtual boost::exception
     {
@@ -37,5 +36,5 @@ namespace Vers
     typedef boost::error_info<struct tag_input_version, std::string> input_version;
 
     /// VersionException additional information: nested exception
-    typedef boost::error_info<struct tag_nested_exception, boost::exception_ptr> nested_exception;
+    typedef boost::error_info<struct tag_nested_exception, std::exception_ptr> nested_exception;
 }
