@@ -207,6 +207,8 @@ namespace Vers
       * @return
       *         - True if the 2 versions are equal.
       *         - False otherwise.
+      *
+      * @note In order to use other comparison operators, see http://en.cppreference.com/w/cpp/utility/rel_ops/operator_cmp
       */
     inline bool operator== (const Version& v1, const Version& v2)
     {
@@ -220,6 +222,8 @@ namespace Vers
       * @return
       *         - True if the first version number is less than the second version number.
       *         - False otherwise.
+      *
+      * @note In order to use other comparison operators, see http://en.cppreference.com/w/cpp/utility/rel_ops/operator_cmp
       */
     inline bool operator< (const Version& v1, const Version& v2)
     {

@@ -14,7 +14,7 @@
 //===========
 #include <iostream>
 
-int main(int /*argc*/, char** /*argv*/)
+int main()
 {
     Vers::Version v1(1, 3, 5, 8);
     Vers::Version v2(1, 3, 7, 2);
