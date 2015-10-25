@@ -13,6 +13,11 @@
 //=============
 #include <boost/test/unit_test.hpp>
 
+//===========
+//==  STD  ==
+//===========
+#include <utility>
+
 BOOST_AUTO_TEST_SUITE(ComparisonOperator)
 
 BOOST_AUTO_TEST_CASE(Equal)
@@ -27,6 +32,8 @@ BOOST_AUTO_TEST_CASE(Equal)
 
 BOOST_AUTO_TEST_CASE(NotEqual)
 {
+    using namespace std::rel_ops;
+
     Vers::Version v1(0, 3, 5, 0);
     Vers::Version v2(0, 3, 5, 0);
     Vers::Version v3(0, 3, 6, 0);
@@ -49,6 +56,8 @@ BOOST_AUTO_TEST_CASE(LessThan)
 
 BOOST_AUTO_TEST_CASE(GreaterThan)
 {
+    using namespace std::rel_ops;
+
     Vers::Version v1(0, 3, 5, 0);
     Vers::Version v2(0, 3, 5, 0);
     Vers::Version v3(0, 3, 6, 0);
@@ -61,6 +70,8 @@ BOOST_AUTO_TEST_CASE(GreaterThan)
 
 BOOST_AUTO_TEST_CASE(LessOrEqual)
 {
+    using namespace std::rel_ops;
+
     Vers::Version v1(0, 3, 5, 0);
     Vers::Version v2(0, 3, 5, 0);
     Vers::Version v3(0, 3, 6, 0);
@@ -73,6 +84,8 @@ BOOST_AUTO_TEST_CASE(LessOrEqual)
 
 BOOST_AUTO_TEST_CASE(GreaterOrEqual)
 {
+    using namespace std::rel_ops;
+
     Vers::Version v1(0, 3, 5, 0);
     Vers::Version v2(0, 3, 5, 0);
     Vers::Version v3(0, 3, 6, 0);

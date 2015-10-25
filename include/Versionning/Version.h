@@ -231,19 +231,6 @@ namespace Vers
                 && v1.getTweak() == v2.getTweak();
     }
 
-    /// Not-Equal operator of 2 version numbers
-    /**
-      * @param v1   First version number
-      * @param v2   Second version number
-      * @return
-      *         - True if the 2 versions are different.
-      *         - False otherwise.
-      */
-    inline bool operator!= (const Version& v1, const Version& v2)
-    {
-        return !(v1 == v2);
-    }
-
     /// Less-than operator of 2 version numbers
     /**
       * @param v1   First version number
@@ -279,69 +266,6 @@ namespace Vers
                 }
             }
         }
-    }
-
-    /// Greater-than operator of 2 version numbers
-    /**
-      * @param v1   First version number
-      * @param v2   Second version number
-      * @return
-      *         - True if the first version number is greater than the second version number.
-      *         - False otherwise.
-      */
-    inline bool operator> (const Version& v1, const Version& v2)
-    {
-        if (v1.getMajor() > v2.getMajor())
-            return true;
-        else if (v1.getMajor() < v2.getMajor())
-            return false;
-        else
-        {
-            if (v1.getMinor() > v2.getMinor())
-                return true;
-            else if (v1.getMinor() < v2.getMinor())
-                return false;
-            else
-            {
-                if (v1.getPatch() > v2.getPatch())
-                    return true;
-                else if (v1.getPatch() < v2.getPatch())
-                    return false;
-                else
-                {
-                    if (v1.getTweak() > v2.getTweak())
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
-    }
-
-    /// Less-or-equal operator of 2 version numbers
-    /**
-      * @param v1   First version number
-      * @param v2   Second version number
-      * @return
-      *         - True if v1 is less than or equal to v2.
-      *         - False otherwise.
-      */
-    inline bool operator<= (const Version& v1, const Version& v2)
-    {
-        return !(v1 > v2);
-    }
-
-    /// Greater-or-equal operator of 2 version numbers
-    /**
-      * @param v1   First version number
-      * @param v2   Second version number
-      * @return
-      *         - True if v1 is greater than or equal to v2.
-      *         - False otherwise.
-      */
-    inline bool operator>= (const Version& v1, const Version& v2)
-    {
-        return !(v1 < v2);
     }
 
     /// Output stream operator
