@@ -11,6 +11,7 @@
 //=============
 //==  Boost  ==
 //=============
+#include <boost/lexical_cast.hpp>
 #include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_SUITE(StringConversions)
@@ -40,7 +41,7 @@ BOOST_AUTO_TEST_CASE(OutputString)
     Vers::Version v1(0, 3, 5, 0);
     std::string v2("0.3.5.0");
 
-    BOOST_CHECK_EQUAL(v1.toString(), v2);
+    BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(v1), v2);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

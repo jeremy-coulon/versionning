@@ -97,21 +97,6 @@ namespace Vers
             return tweak_;
         }
 
-        /// Get complete version number as a string
-        std::string toString() const
-        {
-            const std::string stringSeparator(".");
-            std::string result;
-            result += boost::lexical_cast<std::string>(major_);
-            result += stringSeparator;
-            result += boost::lexical_cast<std::string>(minor_);
-            result += stringSeparator;
-            result += boost::lexical_cast<std::string>(patch_);
-            result += stringSeparator;
-            result += boost::lexical_cast<std::string>(tweak_);
-            return result;
-        }
-
         /// Set 1st version number
         void setMajor(unsigned short major)
         {
