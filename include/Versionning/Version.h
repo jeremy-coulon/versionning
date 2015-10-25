@@ -15,17 +15,17 @@
 //=============
 //==  Boost  ==
 //=============
+#include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
-#include <boost/algorithm/string/trim.hpp>
-#include <boost/lexical_cast.hpp>
 
 //===========
 //==  STD  ==
 //===========
+#include <istream>
+#include <ostream>
 #include <string>
 #include <tuple>
 #include <vector>
-#include <iostream>
 
 /// Namespace of the Versionning library
 namespace Vers
@@ -154,38 +154,22 @@ namespace Vers
                 if (splitResult.size() == 0 || splitResult.size() > 4)
                     BOOST_THROW_EXCEPTION(VersionException());
 
-                boost::algorithm::trim(splitResult[0]);
-                major = boost::lexical_cast<unsigned short>(splitResult[0]);
+                major = std::stoul(splitResult[0]);
 
                 if (splitResult.size() >= 2)
-                {
-                    boost::algorithm::trim(splitResult[1]);
-                    minor = boost::lexical_cast<unsigned short>(splitResult[1]);
-                }
+                    minor = std::stoul(splitResult[1]);
                 else
-                {
                     minor = 0;
-                }
 
                 if (splitResult.size() >= 3)
-                {
-                    boost::algorithm::trim(splitResult[2]);
-                    patch = boost::lexical_cast<unsigned short>(splitResult[2]);
-                }
+                    patch = std::stoul(splitResult[2]);
                 else
-                {
                     patch = 0;
-                }
 
                 if (splitResult.size() == 4)
-                {
-                    boost::algorithm::trim(splitResult[3]);
-                    tweak = boost::lexical_cast<unsigned short>(splitResult[3]);
-                }
+                    tweak = std::stoul(splitResult[3]);
                 else
-                {
                     tweak = 0;
-                }
             }
             catch (const VersionException& e)
             {
