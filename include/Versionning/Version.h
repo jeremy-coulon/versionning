@@ -23,6 +23,7 @@
 //==  STD  ==
 //===========
 #include <string>
+#include <tuple>
 #include <vector>
 #include <iostream>
 
@@ -225,10 +226,7 @@ namespace Vers
       */
     inline bool operator== (const Version& v1, const Version& v2)
     {
-        return v1.getMajor() == v2.getMajor()
-                && v1.getMinor() == v2.getMinor()
-                && v1.getPatch() == v2.getPatch()
-                && v1.getTweak() == v2.getTweak();
+        return std::forward_as_tuple(v1.getMajor(), v1.getMinor(), v1.getPatch(), v1.getTweak()) == std::forward_as_tuple(v2.getMajor(), v2.getMinor(), v2.getPatch(), v2.getTweak());
     }
 
     /// Less-than operator of 2 version numbers
@@ -241,31 +239,7 @@ namespace Vers
       */
     inline bool operator< (const Version& v1, const Version& v2)
     {
-        if (v1.getMajor() < v2.getMajor())
-            return true;
-        else if (v1.getMajor() > v2.getMajor())
-            return false;
-        else
-        {
-            if (v1.getMinor() < v2.getMinor())
-                return true;
-            else if (v1.getMinor() > v2.getMinor())
-                return false;
-            else
-            {
-                if (v1.getPatch() < v2.getPatch())
-                    return true;
-                else if (v1.getPatch() > v2.getPatch())
-                    return false;
-                else
-                {
-                    if (v1.getTweak() < v2.getTweak())
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
+        return std::forward_as_tuple(v1.getMajor(), v1.getMinor(), v1.getPatch(), v1.getTweak()) < std::forward_as_tuple(v2.getMajor(), v2.getMinor(), v2.getPatch(), v2.getTweak());
     }
 
     /// Output stream operator
