@@ -14,14 +14,26 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/test/unit_test.hpp>
 
+//===========
+//==  STD  ==
+//===========
+#include <sstream>
+
 BOOST_AUTO_TEST_SUITE(StringConversions)
 
 BOOST_AUTO_TEST_CASE(CorrectInputString)
 {
+    const std::string str("0.3.5.0");
     Vers::Version v1(0, 3, 5, 0);
-    Vers::Version v2("0.3.5.0");
+    Vers::Version v2(str);
+    Vers::Version v3;
+
+    std::stringstream sstream;
+    sstream << str;
+    sstream >> v3;
 
     BOOST_CHECK_EQUAL(v1, v2);
+    BOOST_CHECK_EQUAL(v1, v3);
 }
 
 BOOST_AUTO_TEST_CASE(IncorrectInputString)

@@ -249,11 +249,10 @@ namespace Vers
       */
     inline std::ostream& operator<<(std::ostream& os, const Version& v)
     {
-        const char stringSeparator('.');
         os << v.getMajor()
-           << stringSeparator << v.getMinor()
-           << stringSeparator << v.getPatch()
-           << stringSeparator << v.getTweak();
+           << '.' << v.getMinor()
+           << '.' << v.getPatch()
+           << '.' << v.getTweak();
         return os;
     }
 
