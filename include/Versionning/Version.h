@@ -38,7 +38,7 @@ namespace Vers
         /**
           * Version is initialized to v0.0.0.0
           */
-        Version()
+        constexpr Version()
             : Version(0, 0, 0, 0)
         {
             // Empty
@@ -51,10 +51,10 @@ namespace Vers
           * @param patch    3rd version number
           * @param tweak    4th version number
           */
-        Version(unsigned short major,
-                unsigned short minor,
-                unsigned short patch,
-                unsigned short tweak)
+        constexpr Version(unsigned short major,
+                          unsigned short minor,
+                          unsigned short patch,
+                          unsigned short tweak)
             : major_(major),
               minor_(minor),
               patch_(patch),
@@ -75,58 +75,58 @@ namespace Vers
         }
 
         /// Get 1st version number
-        unsigned short getMajor() const
+        constexpr unsigned short getMajor() const
         {
             return major_;
         }
 
         /// Get 2nd version number
-        unsigned short getMinor() const
+        constexpr unsigned short getMinor() const
         {
             return minor_;
         }
 
         /// Get 3rd version number
-        unsigned short getPatch() const
+        constexpr unsigned short getPatch() const
         {
             return patch_;
         }
 
         /// Get 4th version number
-        unsigned short getTweak() const
+        constexpr unsigned short getTweak() const
         {
             return tweak_;
         }
 
         /// Set 1st version number
-        void setMajor(unsigned short major)
+        constexpr void setMajor(unsigned short major)
         {
             major_ = major;
         }
 
         /// Set 2nd version number
-        void setMinor(unsigned short minor)
+        constexpr void setMinor(unsigned short minor)
         {
             minor_ = minor;
         }
 
         /// Set 3rd version number
-        void setPatch(unsigned short patch)
+        constexpr void setPatch(unsigned short patch)
         {
             patch_ = patch;
         }
 
         /// Set 4th version number
-        void setTweak(unsigned short tweak)
+        constexpr void setTweak(unsigned short tweak)
         {
             tweak_ = tweak;
         }
 
         /// Set complete version number from 4 numbers
-        void set(unsigned short major,
-                 unsigned short minor,
-                 unsigned short patch,
-                 unsigned short tweak)
+        constexpr void set(unsigned short major,
+                           unsigned short minor,
+                           unsigned short patch,
+                           unsigned short tweak)
         {
             major_ = major;
             minor_ = minor;
